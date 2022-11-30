@@ -26,7 +26,8 @@ addnew  = {
 const sub = document.querySelector("#submit");
 const list = document.querySelector("#list");
 let input = document.querySelector("#input");
-let items = document.querySelectorAll(".list-item"); 
+let items = document.querySelectorAll(".list-item");
+const del = document.querySelector("#clear");
 
 const addNew = item =>{
     const newItem = `
@@ -41,6 +42,11 @@ sub.addEventListener('click', e =>{
     e.preventDefault(); 
    addNew(input.value);
    input.value = '';
+});
+
+del.addEventListener("click", e =>{
+    e.preventDefault(); 
+    list.innerHTML = " ";;
 });
 
 

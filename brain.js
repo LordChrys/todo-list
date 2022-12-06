@@ -1,33 +1,8 @@
-/*
-This project needs to
-
-1. Add user entry to list
-2. Delete any item from list
-3. Clear all items from list 
-
-
-The how:
-
-1. create template for new items
-2. add user input to template
-3. add new template to list
-4. event listner to submit
-5. delete button
-
-Function that takes user entry and appends to list
-addnew  = {
-
-}
-
-
-
-*/
-
 const sub = document.querySelector("#submit");
 const list = document.querySelector("#list");
 let input = document.querySelector("#input");
 let items = document.querySelectorAll(".list-item");
-const del = document.querySelector("#clear");
+const clear = document.querySelector("#clear");
 
 const addNew = item =>{
     const newItem = `
@@ -44,11 +19,16 @@ sub.addEventListener('click', e =>{
    input.value = '';
 });
 
-del.addEventListener("click", e =>{
+clear.addEventListener("click", e =>{
     e.preventDefault(); 
-    list.innerHTML = " ";;
+    list.innerHTML = " ";
 });
 
+list.addEventListener('click', e => {
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
+});
 
 /*
 Issues & Fixes:
@@ -73,7 +53,6 @@ Issues:
 1. trying to add the function with the event listner 
 2. linking the user input to the function. [object MouseEvent] appeared instead of the user input.
 3. ALignment is all out of place
-
 
 Fixes:
 1. separate the function and call it in the event listner
